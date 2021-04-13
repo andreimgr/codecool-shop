@@ -36,11 +36,22 @@
 
 <div class="container">
     <div class="card">
-        <select name="category">
-            <option>All</option>
-            <option th:each="categ, iterStat : ${category}" th:text="${categ.name}">Category Title</option>
-        </select>
-        <input type="submit" value="Sumbit">
+        <form action="/" method="GET">
+            <select name="category">
+                <option>All</option>
+                <option th:each="categ, iterStat : ${category}" th:text="${categ.name}">Category Title</option>
+            </select>
+            <input type="submit" value="Filter by category">
+        </form>
+
+        <form action="/" method="GET">
+            <select name="supplier">
+                <option>All</option>
+                <option th:each="supp, iterStat : ${supplier}" th:text="${supp.name}">Supplier</option>
+            </select>
+            <input type="submit" value="Filter by supplier">
+        </form>
+
     </div>
 
     <div id="products" class="row">
