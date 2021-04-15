@@ -44,4 +44,23 @@ public class ProductController extends HttpServlet {
         engine.process("product/index.html", context, resp.getWriter());
     }
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String category = request.getParameter("category");
+        String supplier = request.getParameter("supplier");
+
+        ProductDao productDataStore = ProductDaoMem.getInstance();
+        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
+        ProductService productService = new ProductService(productDataStore,productCategoryDataStore);
+        SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
+
+        TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(request.getServletContext());
+        WebContext context = new WebContext(request, response, request.getServletContext());
+        context.setVariable("category", productCategoryDataStore.getAll());
+        context.setVariable("products", productService.getProductsForCategory(Integer.parseInt(category)));
+        context.setVariable("supplier", supplierDataStore.getAll());
+        System.out.println(productService.getProductsForCategory(Integer.parseInt(category)));
+        engine.process("product/index.html", context, response.getWriter());
+
+    }
+
 }
