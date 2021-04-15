@@ -43,8 +43,12 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
     }
 
     public float getTotalPrice() { return totalPrice; }
+
     public Integer getQuantityById (int id) {
         return (int) productsInCart.stream().filter(
                 t -> t.getId() == id).count();
     }
+
+    public int getSize() { return productsInCart.size(); }
+    
 }
