@@ -37,12 +37,15 @@
 <div class="container">
     <div class="card">
         <form action="/" method="POST">
-            <select name="category">
+            <select name="category" id="category">
                 <option>All</option>
                 <option th:each="categ, iterStat : ${category}" th:text="${categ.name}" th:value="${categ.id}">Category Title</option>
             </select>
             <input type="submit" value="Filter by category">
         </form>
+        <script type="text/javascript">
+            document.getElementById('category').value = "<?php echo $_GET['category'];?>";
+        </script>
 
         <form action="/" method="POST">
             <select name="supplier">

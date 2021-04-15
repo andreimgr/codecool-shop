@@ -27,7 +27,8 @@ public class ProductController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        ProductService productService = new ProductService(productDataStore,productCategoryDataStore);
+        SupplierDao supplierDaoDataStore = SupplierDaoMem.getInstance();
+        ProductService productService = new ProductService(productDataStore,productCategoryDataStore, supplierDaoDataStore);
         SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
@@ -50,16 +51,28 @@ public class ProductController extends HttpServlet {
 
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        ProductService productService = new ProductService(productDataStore,productCategoryDataStore);
+        SupplierDao supplierDaoDataStore = SupplierDaoMem.getInstance();
+        ProductService productService = new ProductService(productDataStore,productCategoryDataStore, supplierDaoDataStore);
         SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
 
-        TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(request.getServletContext());
-        WebContext context = new WebContext(request, response, request.getServletContext());
-        context.setVariable("category", productCategoryDataStore.getAll());
-        context.setVariable("products", productService.getProductsForCategory(Integer.parseInt(category)));
-        context.setVariable("supplier", supplierDataStore.getAll());
-        System.out.println(productService.getProductsForCategory(Integer.parseInt(category)));
-        engine.process("product/index.html", context, response.getWriter());
+        if (category != null) {
+            TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(request.getServletContext());
+            WebContext context = new WebContext(request, response, request.getServletContext());
+            context.setVariable("category", productCategoryDataStore.getAll());
+            context.setVariable("products", productService.getProductsForCategory(Integer.parseInt(category)));
+            context.setVariable("supplier", supplierDataStore.getAll());
+            System.out.println(productCategoryDataStore.getAll());
+            engine.process("product/index.html", context, response.getWriter());
+        }
+        else {
+            TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(request.getServletContext());
+            WebContext context = new WebContext(request, response, request.getServletContext());
+            context.setVariable("category", productCategoryDataStore.getAll());
+            context.setVariable("supplier", supplierDataStore.getAll());
+            context.setVariable("products", productService.getProductsForSupplier(Integer.parseInt(supplier)));
+            engine.process("product/index.html", context, response.getWriter());
+            System.out.println(supplierDataStore.getAll());
+        }
 
     }
 
