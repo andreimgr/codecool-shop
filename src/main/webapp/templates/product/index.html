@@ -14,18 +14,18 @@
     </div>
 
     <div class="card">
-        <form action="/" method="GET">
-            <select name="category">
+        <form action="/" method="POST">
+            <select name="category" id="category">
                 <option>All</option>
-                <option th:each="categ, iterStat : ${category}" th:text="${categ.name}">Category Title</option>
+                <option th:each="categ, iterStat : ${category}" th:text="${categ.name}" th:value="${categ.id}">Category Title</option>
             </select>
             <input type="submit" value="Filter by category">
         </form>
 
-        <form action="/" method="GET">
-            <select name="supplier">
+        <form action="/" method="POST">
+            <select name="supplier" id="supplier">
                 <option>All</option>
-                <option th:each="supp, iterStat : ${supplier}" th:text="${supp.name}">Supplier</option>
+                <option th:each="supp, iterStat : ${supplier}" th:text="${supp.name}" th:value="${supp.id}">Supplier</option>
             </select>
             <input type="submit" value="Filter by supplier">
         </form>
@@ -45,7 +45,7 @@
                         <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
                     </div>
                     <div class="card-text">
-                        <form method ="post">
+                        <form method ="post" action="/add-product-to-cart">
                             <button class="btn btn-success addProductToCart" type = "submit" th:value="${prod.getId()}" name = "product">Add to cart</button>
                         </form>
                     </div>
