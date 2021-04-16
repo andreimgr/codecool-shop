@@ -42,7 +42,7 @@ public class EditShoppingCartController extends HttpServlet {
 
         String newQuantity = (shoppingCart.getQuantityById(productId) != null) ? Integer.toString(shoppingCart.getQuantityById(productId)) : "0";
         String newTotalItems = Integer.toString(shoppingCart.getSize());
-        String newTotalPrice = Float.toString(Math.round(shoppingCart.getTotalPrice() * 100) / 100);
+        String newTotalPrice = Float.toString(shoppingCart.getTotalPrice());
 
         newData.put("productId", Integer.toString(productId));
         newData.put("newQuantity", newQuantity);
