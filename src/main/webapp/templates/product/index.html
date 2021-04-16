@@ -1,32 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8" />
-    <meta name="author" content="Codecool" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-    <title>Codecool Shop</title>
-
-    <!-- Bootstrap components -->
-    <!-- Latest compiled and minified Jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-    <!--Latest compiled and minified Popper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-    <!-- Latest compiled and minified CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <!-- End of Bootstrap components -->
-
-    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
-</head>
+<div th:replace="header.html :: header"></div>
 
 <body>
 
@@ -35,6 +9,10 @@
 </div>
 
 <div class="container">
+    <div class="">
+        <a href="/shopping-cart">Shopping Cart</a>
+    </div>
+
     <div class="card">
         <form action="/" method="POST">
             <select name="category" id="category">
@@ -43,12 +21,9 @@
             </select>
             <input type="submit" value="Filter by category">
         </form>
-        <script type="text/javascript">
-            document.getElementById('category').value = "<?php echo $_GET['category'];?>";
-        </script>
 
         <form action="/" method="POST">
-            <select name="supplier">
+            <select name="supplier" id="supplier">
                 <option>All</option>
                 <option th:each="supp, iterStat : ${supplier}" th:text="${supp.name}" th:value="${supp.id}">Supplier</option>
             </select>
@@ -70,16 +45,17 @@
                         <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
                     </div>
                     <div class="card-text">
-                        <a class="btn btn-success" href="#">Add to cart</a>
+                        <form method ="post" action="/add-product-to-cart">
+                            <button class="btn btn-success addProductToCart" type = "submit" th:value="${prod.getId()}" name = "product">Add to cart</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
 </div>
 
-<div th:replace="footer.html :: copy"></div>
-
+<div th:replace="footer.html :: footer"></div>
 </body>
 </html>
