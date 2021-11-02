@@ -24,7 +24,7 @@
 
 [comment]: <> (  </a>)
 
-<h3 align="center">Codecool Shop</h3>
+<h1 align="center">Codecool Shop</h1>
 
 
 <!-- TABLE OF CONTENTS -->
