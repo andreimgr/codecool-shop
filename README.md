@@ -35,6 +35,7 @@ The project has been built using Java Servlets and Thymeleaf.
 
 
 <!-- TECHNOLOGIES USED -->
+## Technologies Used
 ![](https://img.shields.io/badge/Backend-Java-informational?style=flat&logo=java&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Templating-Thymeleaf-informational?style=flat&logo=thymeleaf&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Database-PostgreSQL-informational?style=flat&logo=postgresql&logoColor=white&color=2bbc8a)
