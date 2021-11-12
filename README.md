@@ -1,29 +1,4 @@
-<!--
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** github_username, repo_name, twitter_handle, email, project_title, project_description
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
-
-
 <!-- PROJECT LOGO -->
-<br />
-<p align="center">
-
-[comment]: <> (    <img src="images/logo.png" alt="Logo" width="80" height="80">)
-
-[comment]: <> (  </a>)
-
 <h1 align="center">Codecool Shop</h1>
 
 
@@ -33,6 +8,9 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#technologies-used">Technologies Used</a>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -54,6 +32,12 @@
 This projects replicates an E-commerce web application where you are able to browse products, add them into a shopping cart and checkout items
 
 The project has been built using Java Servlets and Thymeleaf.
+
+
+<!-- TECHNOLOGIES USED -->
+![](https://img.shields.io/badge/Backend-Java-informational?style=flat&logo=java&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Templating-Thymeleaf-informational?style=flat&logo=thymeleaf&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Database-PostgreSQL-informational?style=flat&logo=postgresql&logoColor=white&color=2bbc8a)
 
 
 <!-- GETTING STARTED -->
