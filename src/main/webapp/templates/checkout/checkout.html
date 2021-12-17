@@ -1,0 +1,72 @@
+<head th:include="header.html :: header"></head>
+
+<div class="bg-own">
+    <div class="text-center py-5 codecool">
+        <h1>Codecool Shop</h1>
+    </div>
+    <div class="container-fluid  px-5 py-5" style="width:600px;">
+        <div class="card shadow ">
+            <div class="card-header text-center py-4">
+                <h4>Checkout Summery</h4>
+            </div>
+            <div class="card-body p-3 mb-5 bg-body rounded">
+                <form class="row g-3" id="order-details" method="post" action="/checkout">
+                    <h5 class="card-title py-2 text-center">Contact Details</h5>
+                    <div class="col-12">
+                        <input type="text" class="form-control" name="firstName" placeholder="First name" aria-label="First name">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" name="lastName" placeholder="Last name" aria-label="Last name">
+                    </div>
+                    <div class="col-md-12">
+                        <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email" aria-label="Email">
+                    </div>
+                    <div class="col-md-12">
+                        <input type="tel" class="form-control"  name="phone" id="inputPhone4" placeholder="Phone number" aria-label="Phonenumber">
+                    </div>
+                    <h5 class="card-title py-2 text-center">Billing Address</h5>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" name="billCountry" id="inputCountry" placeholder="Country" aria-label="Country">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="billCity" id="inputCity" placeholder="City" aria-label="City">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="billZip" id="inputZip" placeholder="Zip code" aria-label="Zip code">
+                    </div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" name="billStreet" id="inputAddress" placeholder="Address" aria-label="Address">
+                    </div>
+                    <div class="col-4">
+                        <input type="number" class="form-control" name="billHouse" id="inputHouseNumber" placeholder="House number" aria-label="House number">
+                    </div>
+                    <h5 class="card-title py-2 text-center">Shipping Address</h5>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" name="shipCountry" id="inputShippingCountry" placeholder="Country" aria-label="Country">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="shipCity" id="inputShippingCity" placeholder="City" aria-label="City">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="shipZip" id="inputShippingZip" placeholder="Zip code" aria-label="Zip code">
+                    </div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" name="shipStreet" id="inputShippingAddress" placeholder="Address" aria-label="Address">
+                    </div>
+                    <div class="col-4">
+                        <input type="number" class="form-control" name="shipHouse" id="inputShippingHouseNumber" placeholder="House number" aria-label="House number">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Go to Payment</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:include="footer.html :: footer"></div>
+
+</body>
+</html>
